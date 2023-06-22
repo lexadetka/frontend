@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 <template>
 <div class="container mt-5">
   11111
-  <button @click.prevent="this.testMethod()" class="btn btn-outline-primary">Кнопка</button>
+  <button @click.prevent="testMethod()" class="btn btn-outline-primary">Кнопка</button>
   <template v-if="data">
     <div v-for="post in data">
       {{post}}
@@ -37,6 +37,12 @@ export default {
       axios.get('https://jsonplaceholder.typicode.com/posts')
           .then(res=>{
             this.data = res.data
+          })
+    },
+    testGet(){
+      axios.get('https://api.alexeybychkovski.site/api/get')
+          .then(res => {
+            console.log(res)
           })
     }
   }
