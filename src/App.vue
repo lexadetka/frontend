@@ -49,6 +49,7 @@ export default {
     },
     login(){
       axios.get('https://api.alexeybychkovski.site/sanctum/csrf-cookie').then(r=>{
+        console.log(r)
         axios.post('https://api.alexeybychkovski.site/login', {email: 'user@umail.ru', password: '123'})
             .then(res =>{
               console.log(res)
