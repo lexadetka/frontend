@@ -30,7 +30,9 @@ export default {
     }
   },
   mounted() {
+    this.login()
     this.testGet()
+
   },
   methods: {
     testMethod(){
@@ -44,7 +46,16 @@ export default {
           .then(res => {
             console.log(res)
           })
+    },
+    login(){
+      axios.get('https://api.alexeybychkovski.site/sanctum/csrf-cookie').then(r=>{
+        axios.post('https://api.alexeybychkovski.site/login', {email: 'user@umail.ru', password: '123'})
+            .then(res =>{
+              console.log(res)
+            })
+      })
     }
+
   }
 }
 
